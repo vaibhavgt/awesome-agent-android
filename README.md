@@ -174,6 +174,21 @@ The agent should verify its environment with one or two probes (`which adb`, `an
 
 ---
 
+## A worked example: house style
+
+The guide above is vendor- and project-neutral. The [`framework/`](./framework/)
+folder is the opposite — an **opinionated house style** for one studio's apps
+(tranquilwaters): the design system, type scale, motion rules, default tech stack,
+project conventions, monetization model, and the Play launch path.
+
+It's included as a concrete example of the *other* half an agent needs: not just how
+to drive the dev loop, but what to build so app number N already looks and behaves
+like a coherent family. Fork it, swap the brand values, and an agent starts every new
+project already knowing "half the story." Start at
+[`framework/README.md`](./framework/README.md).
+
+---
+
 ## Vendor neutrality
 
 Nothing in this guide is specific to one agent platform. The tools — `adb`, `apkanalyzer`, `gradlew`, `emulator`, the new `android` CLI — produce text I/O that any agent can consume.
