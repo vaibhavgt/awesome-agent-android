@@ -73,3 +73,19 @@ A real launch (`gpstools`) shipped: `ic_play_store_512.png`,
 `store/feature-graphic-1024x500.png`, three framed `store/screenshot-*.png`,
 `docs/index.html` privacy policy on Pages, a signed AAB, and a `PLAY-RELEASE.md`
 in-repo capturing fingerprints + this checklist. Copy that structure per app.
+
+## Field notes (from shipping)
+
+- **Updating the icon? Update the listing graphics too.** The launcher icon (in the
+  APK) and the Play **512 store icon** + **feature graphic** are separate. If you
+  redraw the logo, regenerate and re-upload the 512 icon and any graphic that contains
+  it — otherwise the store shows the old mark.
+- **Build and store-listing changes are separate submissions.** In *Publishing
+  overview* a new app build (Production release) and graphic/text edits show as
+  distinct pending items. Bundle them into **one** "Submit for review" so the live app
+  and listing update together — a graphics-only submit leaves the old build live (and
+  e.g. new IAP product ids won't be in the live code yet).
+- **Discarded a release draft? Bump versionCode before rebuilding** to avoid a
+  "version code already used" error on re-upload.
+- **applicationId is permanent** — see conventions. Decide `com.<org>.<app>` before
+  the first upload; you cannot change it later without a brand-new listing.

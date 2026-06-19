@@ -75,3 +75,31 @@ It's OK to ship with billing in a safe stub (DEBUG-simulate purchase) and real a
 ids, then flip subscriptions on once the Play products exist. Just make sure the
 DEBUG-only simulate affordances are `BuildConfig.DEBUG`-gated so they never reach
 production.
+
+## Field notes (from shipping)
+
+Hard-won specifics from a real launch — these bite if you don't know them:
+
+- **Subscriptions = ONE product + base plans, not N products.** Create a single
+  subscription (e.g. `tw_pro`) with `pro-monthly` / `pro-yearly` base plans. In code,
+  query that one product; resolve the offer per base plan via
+  `subscriptionOfferDetails.firstOrNull { it.basePlanId == … }`, launch with that
+  offer's `offerToken`, and read its `pricingPhaseList.first().formattedPrice`. If you
+  modelled subs as two separate products, rewire to this — it won't match the console
+  otherwise.
+- **Never hardcode the price.** Read `formattedPrice` from ProductDetails — Play
+  returns it in the user's local currency automatically (₹ in India, $ in the US…).
+  Keep a hardcoded string only as an offline fallback.
+- **Billing only works on a Play-installed build.** A sideloaded release APK returns
+  "item unavailable" / errors on purchase — that's expected, not a bug. To test: add
+  your Gmail as a **License tester**, upload to **Internal testing**, install via the
+  opt-in link, then buy (test card, no charge).
+- **One-time products use "purchase options"** now (a `Buy` purchase option, like a
+  base plan). Query by the product id; the purchase option resolves automatically.
+- **Real ads need a published + approved app.** An unpublished release shows an empty
+  banner (no fill) — normal; it fills 1–2 days after going live. Never click your own
+  live ads.
+- **app-ads.txt is optional** (authorized-sellers / anti-fraud). It must live at a
+  domain **root** — a project Pages path (`user.github.io/repo/`) won't do; use a
+  user-site repo (`user.github.io`) and set the Play listing's **Website** to that
+  domain.

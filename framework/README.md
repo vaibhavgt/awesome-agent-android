@@ -8,8 +8,9 @@ The main [README](../README.md) covers the *dev loop* (build → install → obs
 diagnose) that's true for any Android app. This folder covers the *house style* —
 the opinionated defaults that make our apps look and feel like one family.
 
-> Reference implementation: **Gps Camera Location** (`gpstools`). When a doc says
-> "we do X", it means X is shipping in a real app, not a wish.
+> Reference implementation: **Gps Camera Location** (`gpstools`) — **live on Google
+> Play**. When a doc says "we do X", it means X shipped in a real, published app, not
+> a wish. The "Field notes (from shipping)" sections capture what actually bit us.
 
 ## Read in this order
 
