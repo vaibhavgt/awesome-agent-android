@@ -21,6 +21,7 @@ the opinionated defaults that make our apps look and feel like one family.
 5. [conventions.md](conventions.md) — package naming, signing, build types, locale
 6. [monetization.md](monetization.md) — AdMob + Play Billing (IAP + subscription)
 7. [launch-checklist.md](launch-checklist.md) — everything Play needs, in order
+8. [promo-video.md](promo-video.md) — post-launch: a 16s store/ad video from the kit
 
 ## The house philosophy (one screen)
 

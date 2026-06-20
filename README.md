@@ -187,6 +187,11 @@ like a coherent family. Fork it, swap the brand values, and an agent starts ever
 project already knowing "half the story." Start at
 [`framework/README.md`](./framework/README.md).
 
+Reusable Claude Code skills that pair with the house style live in
+[`skills/`](./skills/) — currently the vendored
+[`bencium-innovative-ux-designer`](./skills/bencium-innovative-ux-designer/SKILL.md)
+(design-thinking method) applied on top of our navy+gold defaults.
+
 ---
 
 ## Vendor neutrality

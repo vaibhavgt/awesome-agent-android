@@ -89,3 +89,10 @@ in-repo capturing fingerprints + this checklist. Copy that structure per app.
   "version code already used" error on re-upload.
 - **applicationId is permanent** — see conventions. Decide `com.<org>.<app>` before
   the first upload; you cannot change it later without a brand-new listing.
+- **Target audience must be 18+ for an ad-supported app — or Play rejects on "Families
+  Policy Requirements: Ad Content".** If *App content → Target audience and content*
+  includes **any under-18 age band**, Play applies the **Families Policy**, which
+  requires every ad to come from a families-self-certified ads program. AdMob's general
+  ads aren't certified for children, so the update gets rejected. Fix: set target age to
+  **18 and over only**, "appeal to children" = **No**, save, and resubmit. It's an
+  audience-setting fix — no code or build change needed. (Hit on `gpstools` 0.4.2.)

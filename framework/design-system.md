@@ -2,21 +2,35 @@
 
 Calm, premium, utility-first. A dark navy canvas with **one** warm gold accent.
 
+> **Method, not just a palette.** For the *design-thinking* process — interrogating
+> purpose/users/tone before committing, picking a bold direction, and avoiding generic
+> "AI-slop" aesthetics — use the vendored
+> [`bencium-innovative-ux-designer`](../skills/bencium-innovative-ux-designer/SKILL.md)
+> skill. This doc is the **house defaults** (navy + gold, our components); the skill is
+> the **reasoning** you apply on top.
+
 ## Colour
 
-Define these once in `ui/theme/Color.kt`. Never use raw hex at call sites — always
-a named token.
+**Single source of truth: `ui/theme/Color.kt`.** Hex values live there and *nowhere
+else* — this doc references tokens by **role**, never literals, so the palette can
+change in one place without the docs going stale. At call sites, always use a named
+token, never raw hex.
 
-| Token | Hex | Role |
-|-------|-----|------|
-| `BrandNavy` | `#15294D` | primary brand, top bars, selected chip fill |
-| `BrandNavyDeep` | `#0F1626` | screen background / gradient bottom |
-| `BrandNavySurface` | `#131C2E` | cards / surfaces on the dark canvas |
-| `BrandNavyLight` | `#2A4470` | containers, icon circles, dividers |
-| `BrandGold` | `#F2A93B` | **the accent** — titles, icons, selected, CTAs |
-| `BrandGoldDark` | `#C98A24` | gold on light backgrounds (contrast) |
-| `BrandGoldSoft` | `#FFD699` | soft gold for dark-theme tertiary |
-| `TextSecondary` | `#9AA0A6` | muted labels, coordinates, captions |
+| Token | Role |
+|-------|------|
+| `BrandNavy` | primary brand, top bars, selected chip fill |
+| `BrandNavyDeep` | screen background / gradient bottom |
+| `BrandNavySurface` | cards / surfaces on the dark canvas |
+| `BrandNavyLight` | containers, icon circles, dividers |
+| `BrandNavyGradientTop` | the lighter navy at the top of the home/landing gradient |
+| `BrandGold` | **the accent** — titles, icons, selected, CTAs |
+| `BrandGoldDark` | gold on light backgrounds (contrast) |
+| `BrandGoldSoft` | soft gold for dark-theme tertiary |
+| `TextSecondary` | muted labels, coordinates, captions |
+
+> The three brand values (navy / navy-deep / gold) are quoted once in the framework
+> [README](../README.md#brand-in-three-values) as the canonical reference; everything
+> else derives from them in `Color.kt`.
 
 Rules:
 - **Gold is the only accent.** It marks what's interactive or important. If you reach
@@ -24,8 +38,8 @@ Rules:
 - White at **70% alpha** for secondary text on navy; full white for primary.
 - Status colours (success green, warn amber, error red) are *functional*, used only
   for state (e.g. GPS accuracy chip), never as decoration.
-- Home/landing uses a 3-stop vertical gradient: a slightly lighter navy
-  (`#1B3A66`) → `BrandNavy` → `BrandNavyDeep` for depth.
+- Home/landing uses a 3-stop vertical gradient:
+  `BrandNavyGradientTop` → `BrandNavy` → `BrandNavyDeep` for depth.
 
 ## Spacing & shape
 
